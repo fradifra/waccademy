@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,15 @@
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
+        }
+
+        img {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            top: 140px; /* Regola la distanza dal bordo superiore della pagina */
+            left: 30%; /* Posiziona l'immagine al centro orizzontalmente */
+            transform: translateX(-50%); /* Per centrare l'immagine orizzontalmente */
         }
         
 .fade {
@@ -39,7 +48,7 @@ body {
     flex: 1; /* Fai sì che i pulsanti occupino lo stesso spazio all'interno del contenitore flessibile */
     margin-right: 10px;
     border: none;
-    background-color: #ff8c00; /* Arancione */
+    background-color: #de6f49; /* Arancione */
     color: #fff;
     font-size: 14px;
     cursor: pointer;
@@ -47,24 +56,36 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.options button.back-button {
+    background-color: #ffffff; /* Cambia il colore di sfondo del pulsante "Indietro" */
+    color: #000000; /* Cambia il colore del testo */
+    border: 3px solid #F67c53; /* Aggiungi una cornice arancione */
+    border-radius: 5px; /* Arrotonda gli angoli */
+}
+
+.options button.back-button:hover {
+    background-color: #f0f0f0; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+
 .options button:hover {
-    background-color: #ff6d00; /* Arancione più scuro al passaggio del mouse */
+    background-color: #de6f49; /* Arancione più scuro al passaggio del mouse */
 }
 /* Utilizza una palette di colori coerente */
 .options button {
-    background-color: #3498db; /* Blu */
+    background-color: #3489ff; /* Blu */
 }
 
 .options button:hover {
-    background-color: #2980b9; /* Blu più scuro al passaggio del mouse */
+    background-color: #3489ff; /* Blu più scuro al passaggio del mouse */
 }
 
 .back-to-top {
-    color: #3498db; /* Blu */
+    color: #3489ff; /* Blu */
 }
 
 .back-to-top:hover {
-    color: #2980b9; /* Blu più scuro al passaggio del mouse */
+    color:#3489ff; /* Blu più scuro al passaggio del mouse */
 }
 
 
@@ -122,7 +143,7 @@ body {
             padding: 10px 20px;
             margin-right: 10px;
             border: none;
-            background-color: #ff8c00; /* Arancione */
+            background-color: #F67c53; /* Arancione */
             color: #fff;
             font-size: 14px;
             cursor: pointer;
@@ -131,7 +152,7 @@ body {
         }
 
         .options button:hover {
-            background-color: #ff6d00; /* Arancione più scuro al passaggio del mouse */
+            background-color: #de6f49; /* Arancione più scuro al passaggio del mouse */
         }
 
         .back-to-top {
@@ -139,13 +160,13 @@ body {
             bottom: 20px;
             right: 20px;
             font-size: 24px;
-            color: #ff8c00; /* Arancione */
+            color: #F67c53; /* Arancione */
             cursor: pointer;
             display: none;
         }
 
         .back-to-top:hover {
-            color: #ff7f00; /* Arancione più scuro al passaggio del mouse */
+            color: #F67c53; /* Arancione più scuro al passaggio del mouse */
         }
     </style>
     <script>
@@ -190,140 +211,103 @@ function showNextQuestion(currentQuestionId, nextQuestionId) {
             document.getElementById('goodbye').style.display = 'none'; // Nascondi il messaggio "A presto"
             document.getElementById('backToTop').style.display = 'none'; // Nascondi la freccia per tornare in cima
         }
+        
     </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers msdt:dt="string">Membri di 2062 - MASTER UX/UI</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers>
+<mso:SharedWithUsers msdt:dt="string">31;#Membri di 2062 - MASTER UX/UI</mso:SharedWithUsers>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
 </head>
 <body>
+    </div>
     <div class="container">
         <div class="chat-container">
             <!-- Domanda 1 -->
             <div id="question1" class="message">
-                <p><strong>Assistente Virtuale:</strong> Ciao! Sono l'assistente virtuale per questo sito web. Come posso esserti utile?</p>
+                <p><strong>Assistente Virtuale:</strong> Ciao! Sono Travis, l'assistente virtuale per questo sito web. Ti farò poche e semplici domande per aiutarti nella scelta di un corso o di un master adatto a da. Sei qui come:</p>
                 <div class="options">
-                    <button onclick="handleOption1()">Vorrei scegliere un master</button>
-                    <button onclick="handleOption2()">Vorrei prenotare un colloquio</button>
+                    <button onclick="showNextQuestion('question1', 'question2')">Studente</button>
+                    <button onclick="showNextQuestion('question1', 'question2')">Lavoratore Professionista</button>
                 </div>
             </div>
             <!-- Domanda 2 -->
             <div id="question2" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Certo sono qui per aiutarti. Dimmi, sei uno studente o un lavoratore professionista?</p>
+                <p><strong>Assistente Virtuale:</strong> Preferisci:</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question2', 'question3')">Studente</button>
-                    <button onclick="showNextQuestion('question2', 'question3.1')">Lavoratore professionista</button>
-                    <button onclick="showNextQuestion('question2', 'question1')">Indietro</button>
+                    <button onclick="showNextQuestion('question2', 'question3')">Progetti di gruppo</button>
+                    <button onclick="showNextQuestion('question2', 'question3')">Progetti individuali</button>
+                    <button onclick="showNextQuestion('question2', 'question1')" class="back-button">Indietro</button>
                 </div>
             </div>
             <!-- Domanda 3 -->
             <div id="question3" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Bene, allora ti mostro la lista dei master o dei corsi per te disponibili. Ma prima, in che categoria vuoi cercare?</p>
+                <p><strong>Assistente Virtuale:</strong> Preferisci un corso che si concentri su:</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question3', 'question4')">Digital</button>
-                    <button onclick="showNextQuestion('question3', 'question4.1')">HR</button>
-                    <button onclick="showNextQuestion('question3', 'question2')">Indietro</button>
+                    <button onclick="showNextQuestion('question3', 'question4')">Marketing Digitale</button>
+                    <button onclick="showNextQuestion('question3', 'question4')">Progettazione dell'Esperienza Utente</button>
+                    <button onclick="showNextQuestion('question3', 'question2')" class="back-button">Indietro</button>
                 </div>
             </div>
-             <!-- Domanda 3.1 -->
-             <div id="question3.1" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Bene, allora ti mostro la lista dei master o dei corsi disponibili. Ma prima, in che categoria vuoi cercare?</p>
+             <!-- Domanda 4 -->
+             <div id="question4" class="message" style="display: none;">
+                <p><strong>Assistente Virtuale:</strong> Sei interessato a:</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question3.1', 'question4.2')">Generative AI for Marketing</button>
-                    <button onclick="showNextQuestion('question3.1', 'question4.3')">Legal HR</button>
-                    <button onclick="showNextQuestion('question3.1', 'question2')">Indietro</button>
-                </div>
-            </div>
-            <!-- Domanda 4 -->
-            <div id="question4" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Ecco i master o corsi presenti nella categoria da te scelta:</p>
-                <ul>
-                    <li>Corso di Marketing Digitale Avanzato</li>
-                    <li>Master in Data Science e Analisi Predittiva</li>
-                    <li>Corso di Programmazione Web Full-Stack</li>
-                    <li>Corso di Grafica e Design Digitale</li>
-                    <li>Corso di Intelligenza Artificiale Applicata</li>
-                    <li>Master in Cybersecurity e Sicurezza Informatica</li>
-                </ul>
-                <p>Vuoi sapere quali sono i vantaggi di iscriversi ad uno dei nostri master o corsi?</p>
-                <div class="options">
-                    <button onclick="showNextQuestion('question4', 'question5')">Si, vorrei conoscere i vantaggi</button>
-                    <button onclick="handleOption2()">No, grazie</button>
-                    <button onclick="showNextQuestion('question4', 'question3')">Indietro</button>
-                </div>
-            </div>
-             <!-- Domanda 4.1 -->
-             <div id="question4.1" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Ecco i master o corsi presenti nella categoria da te scelta:</p>
-                <ul>
-                    <li>Corso in Gestione dei Talenti</li>
-                    <li>Master in Leader e Team Building</li>
-                    <li>Corso di Strategie di Compensazione e Benefit</li>
-                    <li>Corso di Diversità e Inclusione sul Lavoro</li>
-                    <li>Corso di Legislazione del Lavoro</li>
-                    <li>Master in Analisi e Gestione dei Dati HR</li>
-                </ul>
-                <p>Vuoi sapere quali sono i vantaggi di iscriversi ad uno dei nostri master o corsi?</p>
-                <div class="options">
-                    <button onclick="showNextQuestion('question4.1', 'question5')">Si, vorrei conoscere i vantaggi</button>
-                    <button onclick="handleOption2()">No, grazie</button>
-                    <button onclick="showNextQuestion('question4.1', 'question3')">Indietro</button>
-                </div>
-            </div>
-            <!-- Domanda 4.2 -->
-            <div id="question4.2" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Ecco i master o corsi presenti nella categoria da te scelta:</p>
-                <ul>
-                    <li>Corso in Personalizzazione con AI</li>
-                    <li>Master Intelligenza Artificiale e Creatività</li>
-                    <li>Corso di Analisi Predittiva nel Marketing</li>
-                    <li>Automazione e Ottimizzazione delle Campagne</li>
-                    <li>Storytelling con Dati</li>
-                    <li>Etica e Ai nel Marketing</li>
-                </ul>
-                <p>Vuoi sapere quali sono i vantaggi di iscriversi ad uno dei nostri master o corsi?</p>
-                <div class="options">
-                    <button onclick="showNextQuestion('question4.2', 'question5')">Si, vorrei conoscere i vantaggi</button>
-                    <button onclick="handleOption2()">No, grazie</button>
-                    <button onclick="showNextQuestion('question4.2', 'question3.1')">Indietro</button>
-                </div>
-            </div>
-            <!-- Domanda 4.3 -->
-            <div id="question4.3" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Ecco i master o corsi presenti nella categoria da te scelta:</p>
-                <ul>
-                    <li>Corso in Diritto del Lavoro e Tecnologia</li>
-                    <li>Master in Compliance e Gestione dei Rischi</li>
-                    <li>Corso di Contrattazione Collettiva Digitale</li>
-                    <li>Corso di Gestione dei Conflitti e Mediazione</li>
-                    <li>Corso di Protezione dei Dati dei Dipendenti</li>
-                    <li>Innovazione Legale per HR</li>
-                </ul>
-                <p>Vuoi sapere quali sono i vantaggi di iscriversi ad uno dei nostri master o corsi?</p>
-                <div class="options">
-                    <button onclick="showNextQuestion('question4.3', 'question5')">Si, vorrei conoscere i vantaggi</button>
-                    <button onclick="handleOption2()">No, grazie</button>
-                    <button onclick="showNextQuestion('question4.3', 'question3.1')">Indietro</button>
+                    <button onclick="showNextQuestion('question4', 'question5')">Lavorare in agenzia</button>
+                    <button onclick="showNextQuestion('question4', 'question5')">Essere un Freelancer</button>
+                    <button onclick="showNextQuestion('question4', 'question3')" class="back-button">Indietro</button>
                 </div>
             </div>
             <!-- Domanda 5 -->
             <div id="question5" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> I vantaggi di iscriversi ad uno dei nostri master o corsi sono la vasta gamma di competenze professionali che ti verranno insegnate, i costi ridotti e la flessibilità, tutto al fine di rendere l'apprendimento molto più confortevole. Vuoi sapere come fare ad iscriversi?</p>
+                <p><strong>Assistente Virtuale:</strong> Preferisci un corso più improntato su:</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question5', 'question6')">Si, voglio sapere come iscrivermi</button>
-                    <button onclick="showNextQuestion('question5', 'question7')">No, grazie</button>
+                    <button onclick="showNextQuestion('question5', 'question6')">Applicazione pratica</button>
+                    <button onclick="showNextQuestion('question5', 'question6')">Teoria</button>
+                    <button onclick="showNextQuestion('question5', 'question4')" class="back-button">Indietro</button>
                 </div>
             </div>
-            <!-- Domanda 6 -->
-            <div id="question6" class="message" style="display: none;">
-                <p><strong>Assistente Virtuale:</strong> Va bene, allora ti mostrerò come fare. Hai già scelto il master o corso che ti interessa?</p>
+             <!-- Domanda 6 -->
+             <div id="question6" class="message" style="display: none;">
+                <p><strong>Assistente Virtuale:</strong> Quanto tempo dedicheresti al croso ogni settimana?</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question6', 'question7')">No, ho bisogno di altro tempo</button>
-                    <button onclick="handleOption2()">Si, grazie</button>
-                    <button onclick="showNextQuestion('question6', 'question5')">Indietro</button>
+                    <button onclick="showNextQuestion('question6', 'question7')">Più di 20 ore</button>
+                    <button onclick="showNextQuestion('question6', 'question7')">Meno di 20 ore</button>
+                    <button onclick="showNextQuestion('question6', 'question5')" class="back-button">Indietro</button>
                 </div>
             </div>
             <!-- Domanda 7 -->
             <div id="question7" class="message" style="display: none;">
+                <p><strong>Assistente Virtuale:</strong> Bene, credo di aver trovato il corso ideale per te: Web Marketing, Digital Advertising & UX Design. Vuoi sapere quali sono i vantaggi di iscriversi ad uno dei nostri master o corsi?
+                <div class="options">
+                    <button onclick="showNextQuestion('question7', 'question8')">Si, vorrei conoscere i vantaggi.</button>
+                    <button onclick="showNextQuestion('question7', 'question8')">No, grazie.</button>
+                    <button onclick="showNextQuestion('question7', 'question6')" class="back-button">Indietro</button>
+                </div>
+            </div>
+            <!-- Domanda 8 -->
+            <div id="question8" class="message" style="display: none;">
+                <p><strong>Assistente Virtuale:</strong> I vantaggi di iscriversi ad uno dei nostri master o corsi sono la vasta gamma di competenze professionali che ti verranno insegnate, i costi ridotti e la flessibilità, tutto al fine di rendere l'apprendimento molto più confortevole. Vuoi sapere come fare ad iscriversi?</p>
+                <div class="options">
+                    <button onclick="showNextQuestion('question8', 'question9')">Si, voglio sapere come iscrivermi</button>
+                    <button onclick="showNextQuestion('question8', 'question9')">No, grazie</button>
+                </div>
+            </div>
+            <!-- Domanda 9 -->
+            <div id="question9" class="message" style="display: none;">
+                <p><strong>Assistente Virtuale:</strong> Va bene, allora ti mostrerò come fare. Sei d'accordo con il corso che ti ho proposto?</p>
+                <div class="options">
+                    <button onclick="showNextQuestion('question9', 'question10')">No, ho bisogno di altro tempo</button>
+                    <button onclick="handleOption2()">Si, grazie</button>
+                </div>
+            </div>
+            <!-- Domanda 10 -->
+            <div id="question10" class="message" style="display: none;">
                 <p><strong>Assistente Virtuale:</strong> D'accordo, mi troverai qui se dovessi avere bisogno di una mano.</p>
                 <div class="options">
-                    <button onclick="showNextQuestion('question7', 'goodbye')">Grazie</button>
+                    <button onclick="showNextQuestion('question10', 'goodbye')">Grazie</button>
                     <button onclick="handleOption2()">Continuiamo a cercare insieme</button>
                 </div>
             </div>
@@ -339,5 +323,40 @@ function showNextQuestion(currentQuestionId, nextQuestionId) {
 </body>
 </html>
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
